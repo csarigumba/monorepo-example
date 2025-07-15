@@ -9,3 +9,40 @@
 6. Recommend any useful tools, packages, or libraries to streamline development, testing, and deployment within this setup.
 7. Ensure the monorepo is optimized for efficient local development, CI/CD workflows, and serverless best practices (e.g., environment variable management, Lambda function sizing, packaging, etc.).
 8. Explain the reasoning behind key design decisions for the folder structure, code organization, and tools included.
+
+Example structure as reference:
+
+```
+/monorepo-root
+│
+├── services
+│   ├── user-service
+│   │   ├──- index.js
+│   │   └──- package.json
+│   └── order-service
+│       ├──- index.js
+│       └──- package.json
+├── packages
+│   ├── logger
+│   │   ├──- index.js
+│   │   └──- package.json
+│   └── database
+│       ├──- index.js
+│       └──- package.json
+├── infra
+│   ├── modules
+│   │   └── lambda
+│   │       ├──- main.tf
+│   │       ├──- variables.tf
+│   │       └──- outputs.tf
+│   └── environments
+│       ├── development
+│       │   ├──- main.tf
+│       │   ├──- terraform.tfvars
+│       │   └──- backend.tf
+│       └── production
+│           ├──- main.tf
+│           ├──- terraform.tfvars
+│           └──- backend.tf
+├── package.json
+```
