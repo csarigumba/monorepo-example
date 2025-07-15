@@ -1,0 +1,23 @@
+packages:
+  - 'services/*'
+  - 'packages/*'
+
+# Catalog for shared dependencies
+catalog:
+  aws-lambda-core: ^1.2.0
+  aws-sdk: ^2.1553.0
+  '@aws-sdk/client-dynamodb': ^3.490.0
+  '@aws-sdk/client-s3': ^3.490.0
+  '@aws-sdk/client-sns': ^3.490.0
+  '@aws-sdk/client-sqs': ^3.490.0
+  '@aws-sdk/lib-dynamodb': ^3.490.0
+  '@aws-sdk/util-dynamodb': ^3.490.0
+  '@middy/core': ^4.7.0
+  '@middy/http-error-handler': ^4.7.0
+  '@middy/http-event-normalizer': ^4.7.0
+  '@middy/http-json-body-parser': ^4.7.0
+  '@middy/validator': ^4.7.0
+  ajv: ^8.12.0
+  winston: ^3.11.0
+  uuid: ^9.0.1
+  zod: ^3.22.4

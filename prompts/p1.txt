@@ -4,6 +4,7 @@
 4. Provide a comprehensive folder structure with naming conventions that prioritize clarity, maintainability, and scalability.
 5. Include a configuration for handling common serverless deployment tasks:
 
+
    * Use **AWS SAM** for local testing and development of Lambda functions.
    * For deployment to AWS, employ **Terraform** to provision and manage the AWS resources, including Lambda functions, API Gateway, and any other necessary infrastructure.
 6. Recommend any useful tools, packages, or libraries to streamline development, testing, and deployment within this setup.

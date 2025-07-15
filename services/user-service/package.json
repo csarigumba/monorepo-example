@@ -1,0 +1,41 @@
+{
+  "name": "@company/user-service",
+  "version": "1.0.0",
+  "description": "User management Lambda service",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --external:aws-sdk",
+    "build:watch": "npm run build -- --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "catalog:",
+    "@aws-sdk/lib-dynamodb": "catalog:",
+    "@company/logger": "workspace:*",
+    "@company/types": "workspace:*",
+    "@company/utils": "workspace:*",
+    "@middy/core": "catalog:",
+    "@middy/http-error-handler": "catalog:",
+    "@middy/http-event-normalizer": "catalog:",
+    "@middy/http-json-body-parser": "catalog:",
+    "@middy/validator": "catalog:",
+    "ajv": "catalog:",
+    "uuid": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.131",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "esbuild": "^0.19.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.0"
+  }
+}
