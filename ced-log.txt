@@ -1,0 +1,6 @@
+1. Run the prompt
+  - prompts/p1.txt
+  - I created this from scratch and ask GenAI (gemini) to proofread and improve.
+
+2.
+
