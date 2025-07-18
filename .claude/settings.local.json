@@ -6,7 +6,8 @@
       "Bash(rm:*)",
       "Bash(pnpm build:*)",
       "Bash(npm run build:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(pnpm install:*)"
     ],
     "deny": []
   }

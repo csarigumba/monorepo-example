@@ -11,7 +11,7 @@ Parameters:
 Globals:
   Function:
     Timeout: 30
-    Runtime: nodejs18.x
+    Runtime: nodejs22.x
     MemorySize: 256
     Environment:
       Variables:

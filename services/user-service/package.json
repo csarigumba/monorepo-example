@@ -5,7 +5,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.js --bundle --platform=node --target=node18 --outfile=dist/index.js --external:aws-sdk",
+    "build": "esbuild src/index.js --bundle --platform=node --target=node22 --outfile=dist/index.js --external:aws-sdk",
     "build:watch": "npm run build -- --watch",
     "test": "jest",
     "test:watch": "jest --watch",
