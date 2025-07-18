@@ -12,7 +12,8 @@
       "Bash(pnpm:*)",
       "Bash(sam build:*)",
       "Bash(cp:*)",
-      "Bash(sam local invoke:*)"
+      "Bash(sam local invoke:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }
