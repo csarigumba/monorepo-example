@@ -1,20 +1,15 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
-import middy from '@middy/core';
-import httpErrorHandler from '@middy/http-error-handler';
-import httpEventNormalizer from '@middy/http-event-normalizer';
-import httpJsonBodyParser from '@middy/http-json-body-parser';
-import validator from '@middy/validator';
-import { transpileSchema } from '@middy/validator/transpile';
-import { logger } from '@company/logger';
-import { UserService } from './handlers/user-handler';
-import { createUserSchema, getUserSchema, updateUserSchema } from './schemas/user-schemas';
+const middy = require('@middy/core');
+const httpErrorHandler = require('@middy/http-error-handler');
+const httpEventNormalizer = require('@middy/http-event-normalizer');
+const httpJsonBodyParser = require('@middy/http-json-body-parser');
+const validator = require('@middy/validator');
+const { transpileSchema } = require('@middy/validator/transpile');
+const { logger } = require('@company/logger');
+const { UserService } = require('./handlers/user-handler');
 
 const userService = new UserService();
 
-const baseHandler = async (
-  event: APIGatewayProxyEvent,
-  context: Context
-): Promise<APIGatewayProxyResult> => {
+const baseHandler = async (event, context) => {
   const { httpMethod, pathParameters, body } = event;
   const userId = pathParameters?.userId;
 
@@ -93,7 +88,7 @@ const baseHandler = async (
   }
 };
 
-export const handler = middy(baseHandler)
+module.exports.handler = middy(baseHandler)
   .use(httpEventNormalizer())
   .use(httpJsonBodyParser())
   .use(httpErrorHandler())

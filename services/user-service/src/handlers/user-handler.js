@@ -1,13 +1,9 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand, PutCommand, UpdateCommand, DeleteCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
-import { v4 as uuidv4 } from 'uuid';
-import { logger } from '@company/logger';
-import { User, CreateUserRequest, UpdateUserRequest } from '@company/types';
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, GetCommand, PutCommand, UpdateCommand, DeleteCommand, ScanCommand } = require('@aws-sdk/lib-dynamodb');
+const { v4: uuidv4 } = require('uuid');
+const { logger } = require('@company/logger');
 
-export class UserService {
-  private dynamoDb: DynamoDBDocumentClient;
-  private tableName: string;
-
+class UserService {
   constructor() {
     const client = new DynamoDBClient({
       region: process.env.AWS_REGION || 'us-east-1',
@@ -16,8 +12,8 @@ export class UserService {
     this.tableName = process.env.USERS_TABLE || 'users';
   }
 
-  async createUser(userData: CreateUserRequest): Promise<User> {
-    const user: User = {
+  async createUser(userData) {
+    const user = {
       id: uuidv4(),
       email: userData.email,
       name: userData.name,
@@ -41,7 +37,7 @@ export class UserService {
     }
   }
 
-  async getUser(userId: string): Promise<User | null> {
+  async getUser(userId) {
     const command = new GetCommand({
       TableName: this.tableName,
       Key: { id: userId },
@@ -49,31 +45,31 @@ export class UserService {
 
     try {
       const result = await this.dynamoDb.send(command);
-      return result.Item as User || null;
+      return result.Item || null;
     } catch (error) {
       logger.error('Error getting user', { userId, error });
       throw new Error('Failed to get user');
     }
   }
 
-  async getAllUsers(): Promise<User[]> {
+  async getAllUsers() {
     const command = new ScanCommand({
       TableName: this.tableName,
     });
 
     try {
       const result = await this.dynamoDb.send(command);
-      return result.Items as User[] || [];
+      return result.Items || [];
     } catch (error) {
       logger.error('Error getting all users', { error });
       throw new Error('Failed to get users');
     }
   }
 
-  async updateUser(userId: string, userData: UpdateUserRequest): Promise<User> {
+  async updateUser(userId, userData) {
     const updateExpression = [];
-    const expressionAttributeNames: Record<string, string> = {};
-    const expressionAttributeValues: Record<string, any> = {};
+    const expressionAttributeNames = {};
+    const expressionAttributeValues = {};
 
     if (userData.name) {
       updateExpression.push('#name = :name');
@@ -103,14 +99,14 @@ export class UserService {
     try {
       const result = await this.dynamoDb.send(command);
       logger.info('User updated successfully', { userId });
-      return result.Attributes as User;
+      return result.Attributes;
     } catch (error) {
       logger.error('Error updating user', { userId, error });
       throw new Error('Failed to update user');
     }
   }
 
-  async deleteUser(userId: string): Promise<void> {
+  async deleteUser(userId) {
     const command = new DeleteCommand({
       TableName: this.tableName,
       Key: { id: userId },
@@ -125,3 +121,5 @@ export class UserService {
     }
   }
 }
+
+module.exports = { UserService };

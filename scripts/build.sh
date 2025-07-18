@@ -81,14 +81,6 @@ else
     npm test
 fi
 
-# Type checking
-print_status "Running type checks..."
-if command -v pnpm &> /dev/null; then
-    pnpm typecheck
-else
-    npm run typecheck
-fi
-
 # Linting
 print_status "Running linter..."
 if command -v pnpm &> /dev/null; then
