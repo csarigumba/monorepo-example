@@ -1,0 +1,14 @@
+{
+  "httpMethod": "POST",
+  "path": "/users",
+  "body": "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "pathParameters": null,
+  "queryStringParameters": null,
+  "requestContext": {
+    "requestId": "test-request-id",
+    "stage": "test"
+  }
+}

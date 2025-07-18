@@ -11,7 +11,7 @@ Parameters:
 Globals:
   Function:
     Timeout: 30
-    Runtime: nodejs18.x
+    Runtime: nodejs22.x
     MemorySize: 256
     Environment:
       Variables:
@@ -60,7 +60,7 @@ Resources:
   UsersTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub "${Environment}-users"
+      TableName: !Sub '${Environment}-users'
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: id
@@ -73,14 +73,14 @@ Resources:
 
 Outputs:
   UserApi:
-    Description: "API Gateway endpoint URL for User service"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/users/"
+    Description: 'API Gateway endpoint URL for User service'
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/users/'
   UserFunction:
-    Description: "User Lambda Function ARN"
+    Description: 'User Lambda Function ARN'
     Value: !GetAtt UserFunction.Arn
   UserFunctionIamRole:
-    Description: "Implicit IAM Role created for User function"
+    Description: 'Implicit IAM Role created for User function'
     Value: !GetAtt UserFunctionRole.Arn
   UsersTable:
-    Description: "DynamoDB table for users"
+    Description: 'DynamoDB table for users'
     Value: !Ref UsersTable

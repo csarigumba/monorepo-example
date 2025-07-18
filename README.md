@@ -7,10 +7,9 @@ A scalable monorepo structure for managing multiple Node.js applications deploye
 This monorepo is designed with the following principles:
 
 - **Modular Design**: Shared packages and independent services
-- **Infrastructure as Code**: Terraform for AWS resource management
 - **Local Development**: AWS SAM for local testing and development
-- **CI/CD Ready**: GitHub Actions for automated testing and deployment
-- **Type Safety**: TypeScript throughout the codebase
+- **Simple Structure**: Minimal configuration for easy understanding
+- **JavaScript**: ES6+ modules throughout the codebase
 - **Best Practices**: ESLint, Prettier, and comprehensive testing
 
 ## 📁 Project Structure
@@ -21,37 +20,31 @@ This monorepo is designed with the following principles:
 │   └── user-service/      # Example user management service
 ├── packages/              # Shared internal packages
 │   ├── logger/           # Structured logging utility
-│   ├── types/            # Shared TypeScript types
-│   ├── utils/            # Common utility functions
-│   ├── database/         # Database connection utilities
-│   └── auth/             # Authentication utilities
-├── infra/                # Terraform infrastructure
-│   ├── modules/          # Reusable Terraform modules
-│   └── environments/     # Environment-specific configurations
-├── scripts/              # Build and deployment scripts
-├── .github/              # CI/CD workflows
-├── docs/                 # Documentation
-└── config/               # Shared configurations
+│   └── utils/            # Common utility functions
+├── template.yaml         # SAM template for deployment
+├── CLAUDE.md            # AI assistant instructions
+└── README.md            # This file
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and pnpm
+- Node.js 20+ and pnpm
 - AWS CLI configured
-- Terraform 1.6+
 - AWS SAM CLI
 - Docker (for local development)
 
 ### Installation
 
 1. **Install dependencies**:
+
    ```bash
    pnpm install
    ```
 
 2. **Build the project**:
+
    ```bash
    pnpm build
    ```
@@ -63,19 +56,22 @@ This monorepo is designed with the following principles:
 
 ### Local Development
 
-1. **Start local API Gateway**:
+1. **Build SAM application**:
+
    ```bash
-   ./scripts/local-dev.sh --mode api --port 3000
+   pnpm sam:build
    ```
 
-2. **Invoke a specific function**:
+2. **Start local API Gateway**:
+
    ```bash
-   ./scripts/local-dev.sh --mode invoke --service user-service
+   pnpm sam:local
    ```
 
-3. **Build SAM application**:
+3. **Invoke a specific function**:
+
    ```bash
-   ./scripts/local-dev.sh --mode build
+   pnpm sam:invoke
    ```
 
 ## 📦 Package Management
@@ -102,36 +98,29 @@ pnpm build
 
 ## 🚀 Deployment
 
-### Manual Deployment
+### SAM Deployment
 
-1. **Deploy to development**:
+1. **Build the application**:
+
    ```bash
-   ./scripts/deploy.sh --environment dev
+   pnpm sam:build
    ```
 
-2. **Deploy to staging**:
+2. **Deploy to AWS**:
+
    ```bash
-   ./scripts/deploy.sh --environment staging
+   sam deploy --guided
    ```
 
-3. **Deploy to production**:
+3. **Deploy with existing configuration**:
    ```bash
-   ./scripts/deploy.sh --environment production --auto-approve
+   sam deploy
    ```
-
-### CI/CD Deployment
-
-Deployments are automated via GitHub Actions:
-
-- **Pull Requests**: Run tests and linting
-- **Push to main**: Deploy to development environment
-- **Manual trigger**: Deploy to any environment
 
 ## 📊 Monitoring & Logging
 
 - **CloudWatch**: Automatic log aggregation for all Lambda functions
-- **X-Ray**: Distributed tracing (can be enabled per function)
-- **Structured Logging**: Using Winston with JSON formatting in production
+- **Structured Logging**: Using Winston with environment-based formatting
 
 ## 🔧 Development Commands
 
@@ -148,9 +137,6 @@ pnpm test
 # Run linting
 pnpm lint
 
-# Run type checking
-pnpm typecheck
-
 # Clean build artifacts
 pnpm clean
 ```
@@ -160,27 +146,26 @@ pnpm clean
 1. Create a new directory under `services/`
 2. Copy the structure from `user-service`
 3. Update `package.json` and implement your Lambda handler
-4. Add Terraform configuration in `infra/environments/`
-5. Update CI/CD workflows if needed
+4. Add the service to the root `template.yaml`
+5. Update shared package dependencies as needed
 
 ## 🧪 Testing Strategy
 
 - **Unit Tests**: Jest for individual function testing
 - **Integration Tests**: SAM local for API testing
-- **E2E Tests**: Post-deployment validation
 
 ## 🔐 Security Best Practices
 
 - IAM roles with least privilege access
-- Secrets managed via AWS Secrets Manager
-- Environment variables via AWS Systems Manager Parameter Store
-- Security scanning with Snyk in CI/CD
+- Input validation and sanitization
+- Structured logging without sensitive data
+- Environment-based configuration
 
 ## 📖 Additional Resources
 
 - [AWS SAM Documentation](https://docs.aws.amazon.com/serverless-application-model/)
-- [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [Lambda Best Practices](https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html)
+- [pnpm Workspaces](https://pnpm.io/workspaces)
 
 ## 🤝 Contributing
 
@@ -193,3 +178,4 @@ pnpm clean
 ## 📝 License
 
 This project is licensed under the MIT License.
+
