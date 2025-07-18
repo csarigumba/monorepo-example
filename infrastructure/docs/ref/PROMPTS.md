@@ -1,1 +1,2 @@
-1. Analyze the prompt located at `docs\ref\INSTRUCTIONS.md` to understand the instruction.
+- Analyze the prompt located at `docs\ref\INSTRUCTIONS.md` to understand the instruction.
+- Store the output in the `infrastructure` directory.
