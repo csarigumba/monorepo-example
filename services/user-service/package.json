@@ -13,8 +13,6 @@
     "clean": "rm -rf dist",
     "sam:build": "sam build",
     "sam:invoke": "sam local invoke UserFunction --event devfiles/event.json",
-    "sam:invoke:get": "sam local invoke UserFunction --event devfiles/get-event.json",
-    "sam:api": "sam local start-api",
     "dev": "pnpm build && pnpm sam:build && pnpm sam:invoke"
   },
   "dependencies": { 
