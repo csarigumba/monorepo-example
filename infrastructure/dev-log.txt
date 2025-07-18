@@ -1,0 +1,15 @@
+1. Create the REQUIREMENTS.md first.
+  - we can ask ai to generate the requirements but its important to review this.
+  - Example prompt: Create requirement file using the aws architecture in docs\diagram\diagram.png
+2. Using the REQUIREMENTS.md file, update the INSTRUCTIONS.md file properly since it will be the context that will be given to the GenAI.
+3. Add the input JSON in the directory "docs\input"
+  - it is better if we deploy it by batch so that task is not too big for GenAI.
+  - in this example, it is by batch.
+    - batch1
+    - batch2
+    - etc.
+4. Proceed on deploying the batch by starting in 1.
+  - prompt: docs\images\prompt1.png
+  - proceed until all batch is completed.
+  - check and refactor the code. VERY IMPORTANT!
+
