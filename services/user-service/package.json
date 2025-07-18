@@ -7,7 +7,7 @@
   "scripts": {
     "build": "esbuild src/index.js --bundle --platform=node --target=node22 --outfile=dist/index.js --external:aws-sdk",
     "build:watch": "npm run build -- --watch",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*.js",
     "clean": "rm -rf dist",

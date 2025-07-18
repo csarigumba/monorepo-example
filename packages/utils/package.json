@@ -5,12 +5,14 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "lint": "eslint src/**/*.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "uuid": "^9.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

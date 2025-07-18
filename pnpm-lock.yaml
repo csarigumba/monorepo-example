@@ -26,12 +26,20 @@ importers:
       winston:
         specifier: ^3.11.0
         version: 3.17.0
+    devDependencies:
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   packages/utils:
     dependencies:
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
+    devDependencies:
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0
 
   services/user-service:
     dependencies:
