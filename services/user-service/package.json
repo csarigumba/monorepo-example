@@ -17,7 +17,7 @@
     "sam:api": "sam local start-api",
     "dev": "pnpm build && pnpm sam:build && pnpm sam:invoke"
   },
-  "dependencies": {
+  "dependencies": { 
     "@company/logger": "workspace:*",
     "@company/utils": "workspace:*"
   },
