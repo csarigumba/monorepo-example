@@ -2,5 +2,7 @@
   - prompts/p1.txt
   - I created this from scratch and ask GenAI (gemini) to proofread and improve.
 
-2.
+2. The output will not be perfect, i need to remove some files manually and use javascript since genai produces TS.
+
+3.
 
