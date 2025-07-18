@@ -7,7 +7,12 @@
       "Bash(pnpm build:*)",
       "Bash(npm run build:*)",
       "Bash(ls:*)",
-      "Bash(pnpm install:*)"
+      "Bash(pnpm install:*)",
+      "WebFetch(domain:pnpm.io)",
+      "Bash(pnpm:*)",
+      "Bash(sam build:*)",
+      "Bash(cp:*)",
+      "Bash(sam local invoke:*)"
     ],
     "deny": []
   }

@@ -10,7 +10,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "uuid": "catalog:"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {}
 }
