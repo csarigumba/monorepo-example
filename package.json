@@ -13,11 +13,6 @@
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "sam:build": "sam build",
-    "sam:local": "sam local start-api",
-    "sam:invoke": "sam local invoke",
-    "deploy:dev": "cd infra/environments/dev && terraform apply",
-    "deploy:staging": "cd infra/environments/staging && terraform apply",
-    "deploy:prod": "cd infra/environments/production && terraform apply",
     "clean": "pnpm -r clean && rm -rf .aws-sam"
   },
   "devDependencies": {

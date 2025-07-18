@@ -22,15 +22,16 @@ pnpm lint
 pnpm clean
 ```
 
-### Build Scripts
+### Local Development
 ```bash
-# Full build with tests and linting
-./scripts/build.sh
+# Build SAM template
+pnpm sam:build
 
-# Local development with SAM
-./scripts/local-dev.sh --mode api --port 3000
-./scripts/local-dev.sh --mode invoke --service user-service
-./scripts/local-dev.sh --mode build
+# Start local API Gateway
+pnpm sam:local
+
+# Invoke function locally
+pnpm sam:invoke
 ```
 
 ### Service-Specific Commands
@@ -51,17 +52,14 @@ pnpm test
 
 ### Monorepo Structure
 - **services/**: Lambda function services (independently deployable)
-- **packages/**: Shared internal packages (@company/logger, @company/types, etc.)
-- **infra/**: Terraform infrastructure modules and environments
-- **scripts/**: Build and deployment automation
+- **packages/**: Shared internal packages (@company/logger, @company/utils)
 
 ### Key Technologies
 - **Package Manager**: pnpm with workspaces
 - **Build Tool**: esbuild for Lambda bundling
-- **Runtime**: Node.js 18+
+- **Runtime**: Node.js 20+
 - **Language**: JavaScript (ES6+)
-- **Infrastructure**: Terraform + AWS SAM (SAM for local dev, Terraform for deployment)
-- **Database**: DynamoDB with single-table design patterns
+- **Infrastructure**: AWS SAM for local development
 - **Testing**: Jest
 
 ### Service Architecture Pattern
@@ -80,7 +78,7 @@ service/
 
 ### Shared Package Dependencies
 Services depend on shared packages in this hierarchy:
-- Services → @company/utils, @company/types, @company/logger
+- Services → @company/utils, @company/logger
 - All packages use workspace references (`workspace:*`)
 - Dependencies managed via pnpm catalog for version consistency
 
@@ -91,7 +89,7 @@ Services depend on shared packages in this hierarchy:
 2. Copy structure from `user-service`
 3. Update `package.json` with service-specific dependencies
 4. Implement Lambda handler in `src/index.js`
-5. Add Terraform configuration in `infra/environments/`
+5. Update root `template.yaml` to include new service
 
 ### Testing Strategy
 - **Unit Tests**: Jest for individual functions
@@ -99,16 +97,15 @@ Services depend on shared packages in this hierarchy:
 - **Build includes**: Type checking, linting, and all tests
 
 ### Infrastructure
-- **Terraform**: Infrastructure as Code in `infra/`
-- **Environments**: dev/staging/production in separate directories
-- **SAM**: Local development and testing only
-- **Deployment**: Use `./scripts/deploy.sh` with environment flags
+- **SAM**: Local development and basic deployment
+- **Template**: Single `template.yaml` for all resources
+- **Deployment**: Use `sam deploy` for simple deployments
 
 ## Important Notes
 
 ### Build Requirements
 - Always run `pnpm build` before deployment
-- Services use esbuild with external AWS SDK
+- Services use esbuild for bundling JavaScript
 - Build process includes bundling, linting, and testing
 - Clean previous builds with `pnpm clean`
 
@@ -116,10 +113,4 @@ Services depend on shared packages in this hierarchy:
 - Use `pnpm add <package>` for service-specific dependencies
 - Use `pnpm add <package> -w` for workspace root dependencies
 - Shared packages use `workspace:*` references
-- AWS SDK is external (not bundled) for Lambda optimization
-
-### Authentication & Security
-- JWT-based authentication with middleware pattern
-- IAM roles with least privilege access
-- Environment variables via AWS Systems Manager Parameter Store
-- Secrets via AWS Secrets Manager
+- Keep dependencies minimal for Lambda optimization
