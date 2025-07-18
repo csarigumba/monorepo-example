@@ -2,328 +2,37 @@
   {
     "No": "1",
     "env": "dev",
-    "Name": "mg-dev-cse-get-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
+    "Name": "test-dev-ced-user-service-function",
+    "Execution Role": "test-ced-lambda-role",
     "Environment variables": "link",
     "Versions": "$LATEST",
     "Runtime": "Node.js 22.X",
     "Function Code Repo": "Upload a .zip file",
     "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "-"
+    "Timeout": "30 sec"
   },
   {
     "No": "2",
-    "env": "dev",
-    "Name": "mg-dev-cse-get-presignedurl-function",
-    "Execution Role": "mg-cse-lambda-role",
+    "env": "staging",
+    "Name": "test-staging-ced-user-service-function",
+    "Execution Role": "test-ced-lambda-role",
     "Environment variables": "link",
     "Versions": "$LATEST",
     "Runtime": "Node.js 22.X",
     "Function Code Repo": "Upload a .zip file",
     "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "-"
+    "Timeout": "30 sec"
   },
   {
     "No": "3",
-    "env": "dev",
-    "Name": "mg-dev-cse-submit-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
+    "env": "prod",
+    "Name": "test-prod-ced-user-service-function",
+    "Execution Role": "test-ced-lambda-role",
     "Environment variables": "link",
     "Versions": "$LATEST",
     "Runtime": "Node.js 22.X",
     "Function Code Repo": "Upload a .zip file",
     "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "4",
-    "env": "dev",
-    "Name": "mg-dev-cse-raw-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-dev-cse-raw-export-dead-queue"
-  },
-  {
-    "No": "5",
-    "env": "dev",
-    "Name": "mg-dev-cse-format-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-dev-cse-format-export-dead-queue"
-  },
-  {
-    "No": "6",
-    "env": "dev",
-    "Name": "mg-dev-cse-notify-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-dev-cse-notify-dead-queue",
-    "Notes": "Do not set up if \"[prd] Report mail to\" is empty (Campaign configuration)"
-  },
-  {
-    "No": "7",
-    "env": "stg",
-    "Name": "mg-stg-cse-get-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "8",
-    "env": "stg",
-    "Name": "mg-stg-cse-get-presignedurl-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "9",
-    "env": "stg",
-    "Name": "mg-stg-cse-submit-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "10",
-    "env": "stg",
-    "Name": "mg-stg-cse-raw-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-stg-cse-raw-export-dead-queue"
-  },
-  {
-    "No": "11",
-    "env": "stg",
-    "Name": "mg-stg-cse-format-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 22.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-stg-cse-format-export-dead-queue"
-  },
-  {
-    "No": "12",
-    "env": "stg",
-    "Name": "mg-stg-cse-notify-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-stg-cse-notify-dead-queue",
-    "Notes": "Do not set up if \"[stg] Report mail to\" is empty (Campaign configuration)"
-  },
-  {
-    "No": "13",
-    "env": "prd",
-    "Name": "mg-prd-cse-get-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "14",
-    "env": "prd",
-    "Name": "mg-prd-cse-get-presignedurl-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "30 sec",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "15",
-    "env": "prd",
-    "Name": "mg-prd-cse-submit-survey-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "Alias",
-      "Alias": "Provisioned",
-      "Provisioned concurrency": "1"
-    },
-    "Dead-letter queue": "-"
-  },
-  {
-    "No": "16",
-    "env": "prd",
-    "Name": "mg-prd-cse-raw-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-prd-cse-raw-export-dead-queue"
-  },
-  {
-    "No": "17",
-    "env": "prd",
-    "Name": "mg-prd-cse-format-export-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "1GB",
-    "Timeout": "15 mins",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-prd-cse-format-export-dead-queue"
-  },
-  {
-    "No": "18",
-    "env": "prd",
-    "Name": "mg-prd-cse-notify-function",
-    "Execution Role": "mg-cse-lambda-role",
-    "Environment variables": "link",
-    "Versions": "$LATEST",
-    "Runtime": "Node.js 20.X",
-    "Function Code Repo": "Upload a .zip file",
-    "Memory": "128",
-    "Timeout": "1 min",
-    "Provisioned Reserved Concurrency": {
-      "Qualifier type": "-",
-      "Alias": "-",
-      "Provisioned concurrency": "-"
-    },
-    "Dead-letter queue": "mg-prd-cse-notify-dead-queue",
-    "Notes": "Do not set up if \"[prd] Report mail to\" is empty (Campaign configuration)"
+    "Timeout": "30 sec"
   }
 ]

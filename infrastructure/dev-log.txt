@@ -13,3 +13,8 @@
   - proceed until all batch is completed.
   - check and refactor the code. VERY IMPORTANT!
 
+
+## Questions
+
+1. how to manage the global variables (project identifier, account number, etc.)
+2. how to manage the lambda function environment variables?

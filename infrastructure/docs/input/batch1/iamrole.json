@@ -1,0 +1,56 @@
+[
+  {
+    "No": "1",
+    "env": "dev",
+    "Role Name": "test-ced-lambda-role",
+    "Trust Policy": "Lambda Service",
+    "Permissions": [
+      "AWSLambdaBasicExecutionRole",
+      "DynamoDBFullAccess",
+      "CloudWatchLogsFullAccess"
+    ],
+    "Managed Policies": [
+      "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+      "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+      "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+    ],
+    "Description": "IAM role for Lambda functions in dev environment",
+    "Max Session Duration": "3600 seconds"
+  },
+  {
+    "No": "2",
+    "env": "staging",
+    "Role Name": "test-ced-lambda-role",
+    "Trust Policy": "Lambda Service",
+    "Permissions": [
+      "AWSLambdaBasicExecutionRole",
+      "DynamoDBFullAccess",
+      "CloudWatchLogsFullAccess"
+    ],
+    "Managed Policies": [
+      "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+      "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+      "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+    ],
+    "Description": "IAM role for Lambda functions in staging environment",
+    "Max Session Duration": "3600 seconds"
+  },
+  {
+    "No": "3",
+    "env": "prod",
+    "Role Name": "test-ced-lambda-role",
+    "Trust Policy": "Lambda Service",
+    "Permissions": [
+      "AWSLambdaBasicExecutionRole",
+      "DynamoDBFullAccess",
+      "CloudWatchLogsFullAccess"
+    ],
+    "Managed Policies": [
+      "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+      "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+      "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+    ],
+    "Description": "IAM role for Lambda functions in prod environment",
+    "Max Session Duration": "3600 seconds"
+  }
+]

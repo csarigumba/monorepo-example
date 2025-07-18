@@ -8,22 +8,7 @@
     ],
     "No": "1",
     "env": "dev",
-    "Name": "mg-dev-cse-surveys",
-    "Primary partition key": "uid (String)",
-    "Primary sort key": "survey_id (String)",
-    "Read/write capacity mode": "On-demand",
-    "PITR": "Disabled"
-  },
-  {
-    "Attributes": [
-      "date_of_submission (String)",
-      "datetime_of_submission (String)",
-      "receipts (List)",
-      "answers (List)"
-    ],
-    "No": "2",
-    "env": "stg",
-    "Name": "mg-stg-cse-surveys",
+    "Name": "test-dev-ced-ddb",
     "Primary partition key": "uid (String)",
     "Primary sort key": "survey_id (String)",
     "Read/write capacity mode": "On-demand",
@@ -37,11 +22,26 @@
       "answers (List)"
     ],
     "No": "3",
-    "env": "prd",
-    "Name": "mg-prd-cse-surveys",
+    "env": "staging",
+    "Name": "test-staging-ced-ddb",
     "Primary partition key": "uid (String)",
     "Primary sort key": "survey_id (String)",
     "Read/write capacity mode": "On-demand",
-    "PITR": "Enabled"
+    "PITR": "Disabled"
+  },
+  {
+    "Attributes": [
+      "date_of_submission (String)",
+      "datetime_of_submission (String)",
+      "receipts (List)",
+      "answers (List)"
+    ],
+    "No": "2",
+    "env": "prod",
+    "Name": "test-prod-ced-ddb",
+    "Primary partition key": "uid (String)",
+    "Primary sort key": "survey_id (String)",
+    "Read/write capacity mode": "On-demand",
+    "PITR": "Disabled"
   }
 ]
